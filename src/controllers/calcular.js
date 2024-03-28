@@ -8,11 +8,13 @@ export const calcular = (
   cargos,
   setResultados
 ) => {
+  console.log(cuotaManejo, cargos);
   monto = parseFloat(monto.replace(/\./g, ""));
   cuotas = parseInt(cuotas);
   interes = parseFloat(interes);
-  cuotaManejo = parseFloat(cuotaManejo && cuotaManejo.replace(/\./g, ""));
-  cargos = parseFloat(cargos && cargos.replace(/\./g, ""));
+  cuotaManejo =
+    cuotaManejo.trim() !== "" ? parseFloat(cuotaManejo.replace(/\./g, "")) : 0;
+  cargos = cargos.trim() !== "" ? parseFloat(cargos.replace(/\./g, "")) : 0;
 
   let montoCopy = monto;
 
@@ -39,9 +41,9 @@ export const calcular = (
     const interesMensual = montoCopy * interesDecimal;
     let total;
     if (i === 0 && diasHataCorte > 0) {
-        total = capital + cuotaManejo + cargos + diasHataCorte;
+      total = capital + cuotaManejo + cargos + diasHataCorte;
     } else {
-        total = interesMensual + capital + cuotaManejo + cargos;
+      total = interesMensual + capital + cuotaManejo + cargos;
     }
     montoCopy -= capital;
     const restante = montoCopy;
@@ -61,7 +63,5 @@ export const calcular = (
         total,
       },
     ]);
-
-    
   }
 };
