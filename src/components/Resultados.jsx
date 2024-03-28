@@ -17,14 +17,24 @@ const Resultados = ({ data }) => {
   };
 
   data.forEach((item) => {
-    totalesColumnas.interesMensual += item.interesMensual;
-    totalesColumnas.cuotaManejo += item.cuotaManejo;
-    totalesColumnas.otrosCargos += item.cargos;
-    totalesColumnas.total += item.total;
+    totalesColumnas.interesMensual += parseFloat(item.interesMensual);
+    totalesColumnas.cuotaManejo += parseFloat(item.cuotaManejo);
+    totalesColumnas.otrosCargos += parseFloat(item.cargos);
+    totalesColumnas.total += parseFloat(item.total);
   });
 
   const formatNumber = (number) => {
-    return "$ " + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    // Verificar si el número es un string vacío y asignar 0 en ese caso
+    if (number === "") {
+      return "$ 0";
+    }
+    // Redondear a 0 decimales y formatear el número
+    return (
+      "$ " +
+      parseFloat(number)
+        .toFixed(0)
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    );
   };
 
   const totalStyle = {
