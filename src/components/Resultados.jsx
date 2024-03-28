@@ -38,7 +38,7 @@ const Resultados = ({ data }) => {
         selectionMode="single"
         defaultSelectedKeys={["2"]}
         aria-label="Example static collection table"
-        className="text-black min-w-[420px] max-w-[420px] overflow-x-auto "
+        className="text-black min-w-[350px] max-w-[350px] md:min-w-[800px] md:max-w-[800px] overflow-x-auto "
       >
         <TableHeader className="text-left">
           <TableColumn>Mes</TableColumn>
