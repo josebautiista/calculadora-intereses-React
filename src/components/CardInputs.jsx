@@ -32,14 +32,6 @@ const CardInputs = () => {
       cargos,
       setResultados
     );
-
-    setMonto("");
-    setCuotas("");
-    setInteres("");
-    setFecha("");
-    setFechaCorte("");
-    setCuotaManejo(0);
-    setCargos(0);
   };
 
   const formatNumberInput = (value) => {
